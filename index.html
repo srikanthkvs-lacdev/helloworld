@@ -4,8 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>సునిల్ చిట్ట్లూరి</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: 'Noto Sans Telugu', sans-serif;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 60px 50px;
+      max-width: 700px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 2.4rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.6;
+      text-shadow: 0 2px 12px rgba(245, 166, 35, 0.4);
+    }
+
+    p span {
+      color: #f5a623;
+    }
+  </style>
 </head>
 <body>
-  <p>"సునిల్ చిట్ట్లూరి" అన్నం తిన్నావా?</p>
+  <div class="card">
+    <p><span>"సునిల్ చిట్ట్లూరి"</span> అన్నం తిన్నావా?</p>
+  </div>
 </body>
 </html>
