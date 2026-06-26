@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7 Wonders of the World</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px 30px;
+      background: linear-gradient(180deg, #1a1a2e, #0d0d0d);
+    }
+    header h1 { font-size: 2.4rem; color: #f5a623; letter-spacing: 2px; }
+    header p { color: rgba(255,255,255,0.4); margin-top: 8px; font-size: 0.95rem; }
+    .back-btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 8px 20px;
+      border: 1px solid rgba(245,166,35,0.4);
+      color: #f5a623;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .back-btn:hover { background: rgba(245,166,35,0.1); }
+
+    .layout {
+      display: flex;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+      gap: 32px;
+    }
+
+    .wonder-list {
+      width: 280px;
+      flex-shrink: 0;
+    }
+    .wonder-list h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .wonder-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      background: #1a1a2e;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      text-decoration: none;
+      color: #fff;
+    }
+    .wonder-link:hover, .wonder-link.active {
+      border-color: #f5a623;
+      background: #16213e;
+    }
+    .wonder-link img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .wonder-link .info h3 { font-size: 0.95rem; margin-bottom: 2px; }
+    .wonder-link .info span { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+    .display-area {
+      flex: 1;
+      background: #1a1a2e;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+    }
+    .display-area img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+    .display-info {
+      padding: 24px;
+      flex: 1;
+    }
+    .display-info h2 { font-size: 1.6rem; color: #f5a623; margin-bottom: 8px; }
+    .display-info p { color: rgba(255,255,255,0.55); line-height: 1.6; font-size: 0.95rem; }
+    .display-info .country {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 14px;
+      background: rgba(245,166,35,0.12);
+      color: #f5a623;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      border: 1px solid rgba(245,166,35,0.3);
+    }
+    .placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.15);
+      font-size: 1rem;
+      gap: 12px;
+    }
+    .placeholder span { font-size: 3rem; }
+
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      .wonder-list { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>7 Wonders of the World</h1>
+    <p>Click a wonder to see it</p>
+    <a class="back-btn" href="index.html">&larr; Back to Home</a>
+  </header>
+
+  <div class="layout">
+    <div class="wonder-list">
+      <h2>Select a Wonder</h2>
+
+      <a class="wonder-link" onclick="showWonder(0); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/640px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg" alt="Great Wall" />
+        <div class="info"><h3>Great Wall of China</h3><span>China</span></div>
+      </a>
+
+      <a class="wonder-link" onclick="showWonder(1); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Petra_Jordan_BW_21.JPG/640px-Petra_Jordan_BW_21.JPG" alt="Petra" />
+        <div class="info"><h3>Petra</h3><span>Jordan</span></div>
+      </a>
+
+      <a class="wonder-link" onclick="showWonder(2); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg/480px-Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg" alt="Christ the Redeemer" />
+        <div class="info"><h3>Christ the Redeemer</h3><span>Brazil</span></div>
+      </a>
+
+      <a class="wonder-link" onclick="showWonder(3); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/640px-Machu_Picchu%2C_Peru.jpg" alt="Machu Picchu" />
+        <div class="info"><h3>Machu Picchu</h3><span>Peru</span></div>
+      </a>
+
+      <a class="wonder-link" onclick="showWonder(4); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/ChichenItza_Castillo.jpg/640px-ChichenItza_Castillo.jpg" alt="Chichen Itza" />
+        <div class="info"><h3>Chichen Itza</h3><span>Mexico</span></div>
+      </a>
+
+      <a class="wonder-link" onclick="showWonder(5); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/640px-Colosseo_2020.jpg" alt="Colosseum" />
+        <div class="info"><h3>Roman Colosseum</h3><span>Italy</span></div>
+      </a>
+
+      <a class="wonder-link" onclick="showWonder(6); return false;" href="#">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/640px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg" alt="Taj Mahal" />
+        <div class="info"><h3>Taj Mahal</h3><span>India</span></div>
+      </a>
+    </div>
+
+    <div class="display-area" id="displayArea">
+      <div class="placeholder">
+        <span>&#127758;</span>
+        <p>Select a wonder from the list</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const wonders = [
+      {
+        name: 'Great Wall of China',
+        country: 'China',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/640px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg',
+        desc: 'A series of fortifications built across northern China, stretching over 13,000 miles. Built over many centuries to protect Chinese states against nomadic invasions.'
+      },
+      {
+        name: 'Petra',
+        country: 'Jordan',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Petra_Jordan_BW_21.JPG/640px-Petra_Jordan_BW_21.JPG',
+        desc: 'An ancient city carved into rose-red cliffs by the Nabataean people. Known as the "Rose City", it dates back to around the 4th century BC.'
+      },
+      {
+        name: 'Christ the Redeemer',
+        country: 'Brazil',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg/480px-Cristo_Redentor_-_Rio_de_Janeiro%2C_Brasil.jpg',
+        desc: 'A colossal Art Deco statue of Jesus Christ standing 30 metres tall on Mount Corcovado, overlooking Rio de Janeiro. Completed in 1931.'
+      },
+      {
+        name: 'Machu Picchu',
+        country: 'Peru',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/640px-Machu_Picchu%2C_Peru.jpg',
+        desc: 'A 15th-century Inca citadel set high in the Andes Mountains at 2,430 metres above sea level. One of the most famous and spectacular sets of ruins in the world.'
+      },
+      {
+        name: 'Chichen Itza',
+        country: 'Mexico',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/ChichenItza_Castillo.jpg/640px-ChichenItza_Castillo.jpg',
+        desc: 'A pre-Columbian city built by the Maya people, famous for its step pyramid El Castillo. One of the largest Maya cities, it was a major regional focal point.'
+      },
+      {
+        name: 'Roman Colosseum',
+        country: 'Italy',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/640px-Colosseo_2020.jpg',
+        desc: 'An ancient amphitheatre in the centre of Rome, the largest ever built. Construction began under Emperor Vespasian in 72 AD. It could hold up to 80,000 spectators.'
+      },
+      {
+        name: 'Taj Mahal',
+        country: 'India',
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/640px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg',
+        desc: 'An ivory-white marble mausoleum on the bank of the Yamuna river in Agra. Built by Mughal Emperor Shah Jahan in memory of his wife Mumtaz Mahal. Completed in 1653.'
+      }
+    ];
+
+    const links = document.querySelectorAll('.wonder-link');
+
+    function showWonder(index) {
+      const w = wonders[index];
+      links.forEach(l => l.classList.remove('active'));
+      links[index].classList.add('active');
+      document.getElementById('displayArea').innerHTML = `
+        <img src="${w.img}" alt="${w.name}" />
+        <div class="display-info">
+          <h2>${w.name}</h2>
+          <p>${w.desc}</p>
+          <span class="country">&#127760; ${w.country}</span>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
