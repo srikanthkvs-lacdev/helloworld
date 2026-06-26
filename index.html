@@ -63,12 +63,33 @@
       padding: 12px;
       background: #fff;
     }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 36px;
+      background: #f5a623;
+      color: #1a1a2e;
+      font-size: 1rem;
+      font-weight: 900;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 24px rgba(245,166,35,0.4);
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(245,166,35,0.6);
+    }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <div class="card">
     <p>We Welcome <span>LAC Dev</span></p>
+    <a class="download-btn" href="test.pdf" download>&#8675; Download Test PDF</a>
     <div class="qr-section">
       <p>Scan to visit this site</p>
       <div id="qrcode"></div>
